@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude Code 초보자 설정 가이드 (데스크톱 · GitHub · Vercel · Supabase · gstack)</title>
+    <meta name="description" content="Claude Code 탭 실습용. OS 선택 후 터미널 준비·GitHub·Vercel." />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="copy-prompt.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <div class="wrap">
+      <header class="site-header">
+        <h1>Claude Code 초보자 설정 가이드</h1>
+        <p class="lead">
+          수업 전에 <a href="#cli">미리 해올 것</a>을 완료하면, 당일은 <strong>Code</strong> 탭에 프롬프트를 붙여 넣고 승인만 하면 됩니다.
+        </p>
+        <fieldset class="platform-fieldset">
+          <legend class="platform-legend">사용 중인 OS</legend>
+          <div class="platform-tabs" role="radiogroup" aria-label="운영체제">
+            <label>
+              <input type="radio" name="platform" id="platform-mac" value="mac" checked />
+              macOS
+            </label>
+            <label>
+              <input type="radio" name="platform" id="platform-win" value="win" />
+              Windows
+            </label>
+          </div>
+        </fieldset>
+      </header>
+
+
+      <main id="main">
+        <section id="cli">
+          <h2>미리 해올 것</h2>
+          <h3 class="vis-h3">1단계. 가입</h3>
+          <ul>
+            <li>
+              <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
+              가입/로그인
+            </li>
+            <li>
+              <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
+              가입/로그인
+            </li>
+            <li>
+              <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>
+              설치 후 Pro 로그인
+            </li>
+          </ul>
+
+          <h3 class="vis-h3">2단계. 터미널에서 설치</h3>
+
+          <div class="open-tip only-mac">
+            <strong>터미널 여는 법</strong>
+            <span class="open-tip__steps">
+              <kbd>⌘ Cmd</kbd> + <kbd>Space</kbd> → Spotlight 검색창에 <code>터미널</code> → <kbd>Return</kbd>
+            </span>
+          </div>
+
+          <div class="open-tip only-win">
+            <strong>PowerShell 여는 법</strong>
+            <span class="open-tip__steps">
+              <kbd>⊞ Win</kbd> + <kbd>R</kbd> → 실행 창에 <code>powershell</code> → <kbd>Enter</kbd>
+            </span>
+          </div>
+
+          <h3 class="vis-h3 only-mac">macOS 설치</h3>
+          <ol class="install-flow only-mac">
+            <li class="step-card">
+              <div class="step-card__head">
+                <span class="step-card__n" aria-hidden="true">1</span>
+                <span class="step-card__title">Git</span>
+              </div>
+              <p>설치 창이 열리면 '설치'를 누릅니다.</p>
+              <div
+                class="prompt-box"
+                tabindex="0"
+                role="button"
+                aria-label="클릭하면 명령을 클립보드에 복사합니다"
+              >
+                xcode-select --install
+              </div>
+            </li>
+            <li class="step-card">
+              <div class="step-card__head">
+                <span class="step-card__n" aria-hidden="true">2</span>
+                <span class="step-card__title">Node.js LTS</span>
+              </div>
+              <p>설치 창이 열립니다. 계속 '계속'을 눌러 완료하세요.</p>
+              <div
+                class="prompt-box"
+                tabindex="0"
+                role="button"
+                aria-label="클릭하면 명령을 클립보드에 복사합니다"
+              >
+PKG_URL=$(curl -fsSL https://nodejs.org/dist/index.json | ruby -rjson -e 'd=JSON.parse(STDIN.read); v=d.find{|x|x["lts"]}["version"]; puts "https://nodejs.org/dist/#{v}/node-#{v}.pkg"')
+curl -fsSL "$PKG_URL" -o /tmp/node-lts.pkg && open /tmp/node-lts.pkg
+              </div>
+            </li>
+            <li class="step-card">
+              <div class="step-card__head">
+                <span class="step-card__n" aria-hidden="true">3</span>
+                <span class="step-card__title">GitHub CLI</span>
+              </div>
+              <p>설치 창이 열립니다. '계속'을 눌러 완료하세요.</p>
+              <div
+                class="prompt-box"
+                tabindex="0"
+                role="button"
+                aria-label="클릭하면 명령을 클립보드에 복사합니다"
+              >
+URL=$(curl -fsSL https://api.github.com/repos/cli/cli/releases/latest | ruby -rjson -e 'r=JSON.parse(STDIN.read); a=r["assets"].find{|x|x["name"].end_with?("_macOS_universal.pkg")}; abort("pkg 없음") unless a; puts a["browser_download_url"]')
+curl -fsSL "$URL" -o /tmp/gh.pkg && open /tmp/gh.pkg
+              </div>
+            </li>
+            <li class="step-card">
+              <div class="step-card__head">
+                <span class="step-card__n" aria-hidden="true">4</span>
+                <span class="step-card__title">Vercel CLI</span>
+              </div>
+              <p>위 설치가 모두 끝난 후 터미널을 닫고 다시 여세요.</p>
+              <div
+                class="prompt-box"
+                tabindex="0"
+                role="button"
+                aria-label="클릭하면 명령을 클립보드에 복사합니다"
+              >
+                npm i -g vercel
+              </div>
+            </li>
+          </ol>
+          <details class="ref-toggle only-mac">
+            <summary>맥 — 브라우저로 받기</summary>
+            <div class="ref-toggle-body">
+              <p>
+                <a class="external" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node</a>
+                ·
+                <a
+                  class="external"
+                  href="https://github.com/cli/cli/releases/latest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >gh</a
+                >
+              </p>
+            </div>
+          </details>
+
+          <h3 class="vis-h3 only-win">Windows 설치</h3>
+          <p class="only-win step-intro">PowerShell에서 실행하세요. 동의·관리자 창이 뜨면 허용합니다.</p>
+          <div
+            class="prompt-box only-win"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 명령을 클립보드에 복사합니다"
+          >
+winget install --id Git.Git -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id OpenJS.NodeJS.LTS -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id GitHub.cli -e --source winget --accept-package-agreements --accept-source-agreements
+          </div>
+          <p class="only-win">설치 완료 후 터미널을 닫고 다시 열어 실행하세요.</p>
+          <div
+            class="prompt-box only-win"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 명령을 클립보드에 복사합니다"
+          >
+            npm i -g vercel
+          </div>
+          <details class="ref-toggle only-win">
+            <summary>winget 실패 시 — 브라우저</summary>
+            <div class="ref-toggle-body">
+              <ol class="install-steps">
+                <li>
+                  <a class="external" href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer"
+                    >Git for Windows</a
+                  >
+                </li>
+                <li>
+                  <a class="external" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
+                    >Node.js LTS (.msi)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="external"
+                    href="https://github.com/cli/cli/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub CLI</a
+                  >
+                  → <code>gh_*_windows_amd64.msi</code>
+                </li>
+              </ol>
+            </div>
+          </details>
+
+          <h3 class="vis-h3">3단계. 로그인</h3>
+          <p class="tight-p">GitHub 로그인 후 Git 설정과 Vercel 로그인까지 자동으로 합니다.</p>
+          <div class="open-tip only-win">
+            <strong>Git Bash 여는 법</strong>
+            <span class="open-tip__steps">시작 메뉴 검색창에 <code>Git Bash</code> → 실행 (Git 설치 후 자동으로 생깁니다)</span>
+          </div>
+          <p class="tight-p only-win">PowerShell을 쓴다면 아래 접기를 펼치세요.</p>
+          <div
+            class="prompt-box"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 명령을 클립보드에 복사합니다"
+          >
+gh auth login
+git config --global user.name "$(gh api user --template '{{if .name}}{{.name}}{{else}}{{.login}}{{end}}')"
+EMAIL="$(gh api user/emails -q '.[] | select(.primary) | .email' | head -n1)"
+if [ -z "$EMAIL" ]; then
+  EMAIL="$(gh api user -q .email)"
+fi
+if [ -z "$EMAIL" ]; then
+  EMAIL="$(gh api user --template '{{.id}}+{{.login}}@users.noreply.github.com')"
+fi
+git config --global user.email "$EMAIL"
+vercel login
+          </div>
+          <details class="ref-toggle only-win">
+            <summary>PowerShell에서 하려면</summary>
+            <div class="ref-toggle-body">
+              <div
+                class="prompt-box"
+                tabindex="0"
+                role="button"
+                aria-label="클릭하면 명령을 클립보드에 복사합니다"
+              >
+gh auth login
+git config --global user.name "$(gh api user --template '{{if .name}}{{.name}}{{else}}{{.login}}{{end}}')"
+$Email = gh api user/emails -q '.[] | select(.primary) | .email' | Select-Object -First 1
+if (-not $Email) { $Email = gh api user -q .email }
+if (-not $Email) { $Email = gh api user --template '{{.id}}+{{.login}}@users.noreply.github.com' }
+git config --global user.email $Email
+vercel login
+              </div>
+            </div>
+          </details>
+
+          <div class="cli-phase--verify">
+            <h3 class="vis-h3">확인</h3>
+            <p class="tight-p">아래를 실행해 모두 숫자·이름이 출력되면 준비 완료입니다. 이어서 <a href="#part1">1부 Code 탭</a>으로 이동하세요.</p>
+            <div
+              class="prompt-box"
+              tabindex="0"
+              role="button"
+              aria-label="클릭하면 명령을 클립보드에 복사합니다"
+            >
+git --version
+node -v
+npm -v
+gh auth status
+vercel whoami
+            </div>
+            <ul class="verify-hints">
+              <li><code>git version 2.x.x</code> 형태가 나오면 정상</li>
+              <li><code>v22.x.x</code> 같은 숫자가 나오면 정상</li>
+              <li><code>Logged in to github.com</code>이 나오면 정상</li>
+              <li>Vercel 계정 이메일이 나오면 정상</li>
+            </ul>
+            <p class="follow-hint only-mac"><code>command not found</code>가 뜨면 터미널을 닫고 다시 열어 재실행하세요.</p>
+            <p class="follow-hint only-win">명령을 찾을 수 없다는 오류가 나오면 PowerShell을 닫고 다시 열어 재실행하세요.</p>
+          </div>
+        </section>
+
+
+        <section id="part1">
+          <h2>1부. Code 탭</h2>
+          <ol class="setup-steps">
+            <li><a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 앱</a>을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
+            <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
+            <li>작업할 폴더를 선택하고, 사용할 모델을 고릅니다.</li>
+            <li>권한 설정은 <strong>Ask permissions</strong>로 두세요. (파일 수정 전에 매번 확인을 요청합니다)</li>
+            <li>이후 아래 2·3부 프롬프트를 순서대로 복사해 붙여 넣으면 됩니다.</li>
+          </ol>
+          <details class="ref-toggle">
+            <summary>탭 예시 그림</summary>
+            <div class="ref-toggle-body">
+              <figure class="doc-figure diagram-figure">
+                <div class="tab-strip-svg" aria-hidden="true">
+                  <svg viewBox="0 0 420 48" width="420" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="420" height="48" rx="8" fill="#f0eeea" stroke="#e2dfd8" />
+                    <text x="24" y="30" font-size="14" fill="#5c5b56" font-family="system-ui,sans-serif">
+                      Chat
+                    </text>
+                    <text x="120" y="30" font-size="14" fill="#5c5b56" font-family="system-ui,sans-serif">
+                      Cowork
+                    </text>
+                    <rect x="200" y="8" width="88" height="32" rx="6" fill="#f0e6de" stroke="#c45c26" stroke-width="2" />
+                    <text x="222" y="30" font-size="14" font-weight="600" fill="#1a1a18" font-family="system-ui,sans-serif">
+                      Code
+                    </text>
+                    <text x="310" y="30" font-size="12" fill="#8a8883" font-family="system-ui,sans-serif">
+                      ← 이 탭 사용
+                    </text>
+                  </svg>
+                </div>
+                <figcaption>예시(앱은 바뀔 수 있음).</figcaption>
+              </figure>
+            </div>
+          </details>
+        </section>
+
+        <section id="part2">
+          <h2>2부. GitHub — 비공개 저장소</h2>
+
+          <div class="brand-row" aria-hidden="true">
+            <img
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              alt=""
+              width="40"
+              height="40"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <p>아래 프롬프트를 Code 탭에 붙여 넣으면 <strong>비공개</strong> GitHub 저장소를 자동으로 만들고 첫 푸시까지 완료합니다.</p>
+          <div class="work-block">
+            <div
+              class="prompt-box"
+              tabindex="0"
+              role="button"
+              aria-label="클릭하면 프롬프트를 클립보드에 복사합니다"
+            >
+이 폴더를 git 저장소로 준비하고, GitHub CLI(gh)로 비공개 원격 저장소를 만들어 연결한 뒤 첫 푸시까지 해 줘. gh repo create 매뉴얼의 --private, --source, --push 를 참고해. gh는 터미널에서 이미 설치·로그인해 둔 상태야. 승인은 앱에서 할게.
+            </div>
+            <p class="work-block__hint">앱에서 승인 요청이 오면 허용하세요. 브라우저 로그인 창이 뜰 수 있습니다.</p>
+          </div>
+        </section>
+
+        <section id="part3">
+          <h2>3부. Vercel — 연결·배포</h2>
+
+          <div class="brand-row" aria-hidden="true">
+            <img
+              src="https://assets.vercel.com/image/upload/front/favicon/vercel/32x32.png"
+              alt=""
+              width="32"
+              height="32"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <p>2부에서 GitHub 저장소를 만든 뒤 진행합니다. 아래 프롬프트로 <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>에 연결하고 배포까지 완료합니다.</p>
+          <div class="work-block">
+            <div
+              class="prompt-box"
+              tabindex="0"
+              role="button"
+              aria-label="클릭하면 프롬프트를 클립보드에 복사합니다"
+            >
+Vercel CLI로 이 폴더를 진행해 줘. vercel은 터미널에서 이미 설치·로그인해 둔 상태야. vercel link로 프로젝트 연결하고, GitHub 저장소와 연결하려면 vercel git connect 문서를 보고 맞는 단계 실행해. 배포는 vercel deploy 문서대로 하고, 프로덕션은 --prod 옵션 안내에 따라 진행해. 승인은 내가 할게.
+            </div>
+            <p class="work-block__hint">진행 중 질문이 오면 답하고, 승인 요청이 오면 허용하세요.</p>
+          </div>
+        </section>
+
+        <section id="part4">
+          <h2>4부. Supabase (선택)</h2>
+          <p class="tight-p">3부 완료 후, 데이터베이스나 인증 기능이 필요할 때만 진행하세요.</p>
+          <div class="work-block">
+            <div
+              class="prompt-box"
+              tabindex="0"
+              role="button"
+              aria-label="클릭하면 프롬프트를 클립보드에 복사합니다"
+            >
+이 Vercel 프로젝트에 Supabase Marketplace 연동을 Vercel CLI로 추가해 줘. vercel integration 명령 문서와 integration add / install 안내를 보고 진행해. 끝나면 Vercel에 붙은 Supabase 환경 변수 기준으로 이 레포 코드를 맞춰 줘. 승인은 내가 할게.
+            </div>
+            <p class="work-block__hint follow-hint">Supabase는 유료 플랜 안내가 나올 수 있습니다. 기존 코드가 없으면 환경 변수만 추가됩니다.</p>
+          </div>
+        </section>
+
+        <section id="gstack">
+          <h2>gstack (선택)</h2>
+          <p>
+            <a class="external" href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer">gstack</a>은 Code 탭에서 <kbd>/</kbd>로 쓰는 슬래시 스킬 모음입니다. 설치하면 리뷰·QA·배포 등을 명령어 하나로 실행할 수 있습니다.
+          </p>
+          <p class="tight-p only-mac">설치 전 <a class="external" href="https://bun.sh" target="_blank" rel="noopener noreferrer">Bun</a> 1.0 이상이 필요합니다. 없으면 아래 프롬프트가 자동으로 설치합니다.</p>
+          <p class="tight-p only-win">설치 전 Bun 1.0 이상이 필요합니다. 자세한 내용은 <a class="external" href="https://github.com/garrytan/gstack" target="_blank" rel="noopener noreferrer">README</a>를 참고하세요.</p>
+          <div
+            class="prompt-box"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 프롬프트를 클립보드에 복사합니다"
+          >
+gstack을 설치해 줘. 터미널에서 공식 저장소 안내대로 실행해:
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
+cd ~/.claude/skills/gstack && ./setup
+Bun이 없으면 bun.sh 공식 문서대로 먼저 설치해. setup이 끝나면 이 프로젝트 CLAUDE.md에 gstack 사용 안내(슬래시 명령 목록, 웹은 /browse 권장 등)를 upstream README에 맞게 정리해 줘.
+          </div>
+          <details class="ref-toggle">
+            <summary>명령 흐름 참고 (기획 → 구현 → 리뷰 → 배포)</summary>
+            <div class="ref-toggle-body">
+              <ol class="gstack-flow tight-flow">
+                <li><code>/office-hours</code></li>
+                <li><code>/plan-ceo-review</code> · <code>/plan-eng-review</code> · <code>/plan-design-review</code></li>
+                <li><code>/design-consultation</code> · <code>/design-shotgun</code> · <code>/design-html</code></li>
+                <li><code>/autoplan</code></li>
+                <li>구현·커밋</li>
+                <li><code>/investigate</code></li>
+                <li><code>/review</code> · <code>/codex</code></li>
+                <li><code>/cso</code></li>
+                <li><code>/setup-browser-cookies</code> · <code>/browse</code> · <code>/connect-chrome</code> · <code>/qa</code> · <code>/qa-only</code></li>
+                <li><code>/setup-deploy</code></li>
+                <li><code>/ship</code> · <code>/land-and-deploy</code></li>
+                <li><code>/canary</code> · <code>/benchmark</code></li>
+                <li><code>/document-release</code> · <code>/retro</code></li>
+              </ol>
+              <p class="follow-hint"><code>/careful</code> · <code>/freeze</code> · <code>/guard</code> · <code>/unfreeze</code> · <code>/gstack-upgrade</code></p>
+            </div>
+          </details>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <details class="ref-toggle">
+          <summary>데스크톱 문서</summary>
+          <div class="ref-toggle-body">
+            <p>
+              <a
+                class="external"
+                href="https://code.claude.com/docs/en/desktop-quickstart.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                >데스크톱 시작하기</a
+              >
+            </p>
+          </div>
+        </details>
+      </footer>
+    </div>
+  </body>
+</html>
