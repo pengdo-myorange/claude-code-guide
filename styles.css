@@ -564,6 +564,17 @@ kbd {
   line-height: 1.6;
 }
 
+.auto-approve-steps {
+  margin: 0.35rem 0 0.1rem;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.auto-approve-steps li {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
 /* 확인 단계 기대 출력 힌트 */
 .verify-hints {
   list-style: none;
