@@ -525,6 +525,15 @@ kbd {
   background: var(--surface);
 }
 
+.cli-phase--verify .prompt-box {
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.cli-phase--verify .prompt-box:hover {
+  background: #faf9f7;
+}
+
 /* 프롬프트 작업 블록 */
 .work-block {
   margin: 0.75rem 0 1rem;

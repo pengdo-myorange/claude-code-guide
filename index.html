@@ -224,26 +224,6 @@ fi
 git config --global user.email "$EMAIL"
 vercel login
           </div>
-          <details class="ref-toggle only-win">
-            <summary>PowerShell에서 하려면</summary>
-            <div class="ref-toggle-body">
-              <div
-                class="prompt-box"
-                tabindex="0"
-                role="button"
-                aria-label="클릭하면 명령을 클립보드에 복사합니다"
-              >
-gh auth login
-git config --global user.name "$(gh api user --template '{{if .name}}{{.name}}{{else}}{{.login}}{{end}}')"
-$Email = gh api user/emails -q '.[] | select(.primary) | .email' | Select-Object -First 1
-if (-not $Email) { $Email = gh api user -q .email }
-if (-not $Email) { $Email = gh api user --template '{{.id}}+{{.login}}@users.noreply.github.com' }
-git config --global user.email $Email
-vercel login
-              </div>
-            </div>
-          </details>
-
           <div class="cli-phase--verify">
             <h3 class="vis-h3">확인</h3>
             <p class="tight-p">아래를 실행해 모두 숫자·이름이 출력되면 준비 완료입니다.</p>
@@ -299,14 +279,14 @@ vercel whoami
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
             <li>작업할 폴더를 선택하고, 사용할 모델을 고릅니다.</li>
             <li>
-              설정을 변경합니다. Code 탭 왼쪽 아래 <strong>설정(⚙)</strong>을 클릭한 뒤:
+              Claude 앱 설정을 변경합니다. 앱 메뉴에서 <strong>설정</strong>을 열고 <strong>Claude Code</strong>를 클릭한 뒤:
               <ol class="auto-approve-steps">
-                <li><strong>Permissions</strong> → <strong>Auto-approve</strong> 선택 (파일 수정·터미널 명령을 자동 실행)</li>
                 <li><strong>권한 우회 모드</strong> → <strong>ON</strong></li>
                 <li><strong>미리보기</strong> → <strong>ON</strong></li>
                 <li><strong>미리보기 세션 유지</strong> → <strong>ON</strong></li>
               </ol>
             </li>
+            <li>채팅창 아래에서 <strong>Auto-approve(편집 자동 승인)</strong>를 켭니다. (파일 수정·터미널 명령을 자동 실행)</li>
             <li>이후 아래 프롬프트를 순서대로 복사해 붙여 넣으면 됩니다.</li>
           </ol>
           <details class="ref-toggle">
