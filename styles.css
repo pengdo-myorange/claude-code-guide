@@ -525,6 +525,10 @@ kbd {
   background: var(--surface);
 }
 
+.cli-phase--verify .vis-h3 {
+  margin-top: 0;
+}
+
 .cli-phase--verify .prompt-box {
   background: #fff;
   border: 1px solid var(--border);
@@ -726,11 +730,8 @@ kbd {
 }
 
 footer.site-footer {
-  margin-top: 3rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.875rem;
-  color: var(--muted);
+  margin: 0;
+  padding: 0;
 }
 
 /* 사용하지 않는 레거시 클래스 — 기능 유지 */
