@@ -519,7 +519,7 @@ kbd {
 }
 
 .cli-phase--verify {
-  margin: 2rem 0 0.5rem;
+  margin: 0.75rem 0 0.5rem;
   padding: 1rem 1.1rem;
   border-radius: var(--radius);
   background: var(--surface);
