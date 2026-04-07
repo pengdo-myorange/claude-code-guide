@@ -1,15 +1,16 @@
-/* Claude Code 초보자 가이드 — Notion 스타일 */
+/* 지옥의 AI 캠프 — 다크 모드 + 불꽃 액센트 */
 
 :root {
-  --bg: #ffffff;
-  --surface: #f7f6f3;
-  --text: #37352f;
-  --muted: #787774;
-  --accent: #37352f;
-  --accent-soft: #f1f1ef;
-  --border: #e3e2df;
-  --blue: #2eaadc;
-  --radius: 3px;
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-bright: #1c2129;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #ff6b35;
+  --accent-dim: rgba(255, 107, 53, 0.15);
+  --accent-glow: rgba(255, 107, 53, 0.25);
+  --border: #30363d;
+  --radius: 6px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
   --mono: "SFMono-Regular", "Menlo", "Consolas", "PT Mono", monospace;
@@ -41,7 +42,7 @@ body {
   left: -9999px;
   top: 0;
   padding: 0.5rem 1rem;
-  background: var(--text);
+  background: var(--accent);
   color: #fff;
   z-index: 100;
 }
@@ -57,17 +58,23 @@ body {
   padding: 0 2rem 4rem;
 }
 
+/* 헤더 */
 header.site-header {
-  padding: 3rem 0 1.5rem;
+  padding: 3rem 0 2rem;
   margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .site-header h1 {
   margin: 0 0 0.5rem;
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.2;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff3d00 50%, #ffab00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .lead {
@@ -88,11 +95,11 @@ header.site-header {
 .platform-legend {
   padding: 0;
   margin: 0 0 0.4rem;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .platform-tabs {
@@ -100,7 +107,8 @@ header.site-header {
   gap: 0;
   padding: 3px;
   background: var(--surface);
-  border-radius: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   width: fit-content;
   max-width: 100%;
 }
@@ -110,29 +118,29 @@ header.site-header {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.4rem 1rem;
+  padding: 0.45rem 1.1rem;
   border-radius: 4px;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--muted);
   background: transparent;
-  transition: background 0.12s, color 0.12s;
+  transition: background 0.15s, color 0.15s;
 }
 
 .platform-tabs label:hover {
   color: var(--text);
-  background: rgba(55, 53, 47, 0.04);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .platform-tabs input {
   margin: 0;
-  accent-color: var(--text);
+  accent-color: var(--accent);
 }
 
 .platform-tabs label:has(input:checked) {
-  background: #fff;
-  color: var(--text);
-  box-shadow: 0 0 0 1px rgba(55, 53, 47, 0.09), 0 1px 2px rgba(55, 53, 47, 0.1);
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
 }
 
 body:has(#platform-mac:checked) .only-win,
@@ -145,8 +153,9 @@ body:has(#platform-win:checked) .only-mac {
   display: block;
 }
 
+/* 섹션 */
 section {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   scroll-margin-top: 1rem;
 }
 
@@ -155,14 +164,16 @@ section > h2 {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  padding-bottom: 0;
-  border-bottom: none;
+  color: var(--text);
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--accent-dim);
 }
 
 section h3 {
   margin: 1.5rem 0 0.5rem;
   font-size: 1.125rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 p {
@@ -180,29 +191,28 @@ li {
 }
 
 a {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: rgba(55, 53, 47, 0.25);
-  text-underline-offset: 2px;
+  color: var(--accent);
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration-color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .external::after {
   content: " ↗";
   font-size: 0.8em;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 code {
   font-family: var(--mono);
   font-size: 0.85em;
-  background: rgba(135, 131, 120, 0.15);
+  background: rgba(255, 107, 53, 0.1);
   padding: 0.15em 0.4em;
   border-radius: 3px;
-  color: #eb5757;
+  color: #ffa06c;
 }
 
 kbd {
@@ -210,9 +220,10 @@ kbd {
   font-size: 0.85em;
   padding: 0.1em 0.4em;
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--surface);
-  box-shadow: 0 1px 0 rgba(55, 53, 47, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: var(--text);
 }
 
 /* 참고용 접기 */
@@ -238,7 +249,7 @@ kbd {
 }
 
 .ref-toggle[open] > summary {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .ref-toggle > summary::-webkit-details-marker {
@@ -286,7 +297,8 @@ kbd {
   font-family: var(--mono);
   font-size: 0.85rem;
   background: var(--surface);
-  border: none;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   padding: 0.85rem 3.5rem 0.85rem 1rem;
   margin: 0 0 0.65rem;
@@ -294,16 +306,18 @@ kbd {
   word-break: break-word;
   outline: none;
   cursor: pointer;
-  transition: background 0.12s;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
   color: var(--text);
 }
 
 .prompt-box:hover {
-  background: #efedea;
+  background: var(--surface-bright);
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.08);
 }
 
 .prompt-box:focus {
-  box-shadow: 0 0 0 2px rgba(46, 170, 220, 0.35);
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .copy-badge {
@@ -314,40 +328,42 @@ kbd {
   font-size: 0.7rem;
   font-weight: 500;
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 0.15rem 0.45rem;
   pointer-events: none;
   white-space: nowrap;
-  transition: background 0.12s, color 0.12s;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
   user-select: none;
 }
 
 .prompt-box:hover .copy-badge {
-  color: var(--text);
-  background: #fff;
+  color: var(--accent);
+  border-color: rgba(255, 107, 53, 0.4);
 }
 
 .prompt-box.copied {
-  background: rgba(46, 170, 220, 0.06);
+  background: rgba(63, 185, 80, 0.08);
+  border-left-color: #3fb950;
 }
 
 .prompt-box.copied .copy-badge {
-  background: rgba(46, 170, 220, 0.1);
-  border-color: rgba(46, 170, 220, 0.3);
-  color: #2eaadc;
+  background: rgba(63, 185, 80, 0.12);
+  border-color: rgba(63, 185, 80, 0.4);
+  color: #3fb950;
   font-weight: 600;
 }
 
 .prompt-box.copy-fail {
-  background: rgba(235, 87, 87, 0.06);
+  background: rgba(248, 81, 73, 0.08);
+  border-left-color: #f85149;
 }
 
 .prompt-box.copy-fail .copy-badge {
-  background: rgba(235, 87, 87, 0.1);
-  border-color: rgba(235, 87, 87, 0.3);
-  color: #eb5757;
+  background: rgba(248, 81, 73, 0.12);
+  border-color: rgba(248, 81, 73, 0.4);
+  color: #f85149;
 }
 
 .tight-p {
@@ -373,7 +389,7 @@ kbd {
 
 .step-card {
   padding: 1rem 1.1rem;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -392,8 +408,8 @@ kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 3px;
-  background: var(--text);
+  border-radius: 4px;
+  background: var(--accent);
   color: #fff;
   font-size: 0.8rem;
   font-weight: 700;
@@ -402,6 +418,7 @@ kbd {
 .step-card__title {
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 .step-card p {
@@ -417,6 +434,7 @@ kbd {
   align-items: baseline;
   gap: 0.3rem 0.6rem;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.55rem 0.85rem;
   margin: 0 0 1rem;
@@ -426,7 +444,7 @@ kbd {
 
 .open-tip strong {
   white-space: nowrap;
-  color: var(--text);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -439,9 +457,9 @@ kbd {
 }
 
 .open-tip code {
-  background: #fff;
-  border: 1px solid var(--text);
-  color: var(--text);
+  background: rgba(255, 107, 53, 0.12);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-weight: 600;
   font-size: 0.88em;
   padding: 0.05em 0.38em;
@@ -471,7 +489,7 @@ kbd {
   font-size: 0.875rem;
 }
 
-/* 확인 단계 기대 출력 힌트 */
+/* 확인 단계 */
 .verify-hints {
   list-style: none;
   padding: 0;
@@ -492,7 +510,7 @@ kbd {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #4daa57;
+  color: #3fb950;
   font-size: 0.8rem;
 }
 
@@ -505,24 +523,12 @@ kbd {
   margin: 0.5rem 0;
 }
 
-.gstack-flow {
-  margin: 0.65rem 0 1.25rem;
-  padding-left: 1.35rem;
-}
-
-.gstack-flow li {
-  margin: 0.55rem 0;
-}
-
-.gstack-flow.tight-flow li {
-  margin: 0.25rem 0;
-}
-
 .cli-phase--verify {
   margin: 0.75rem 0 0.5rem;
   padding: 1rem 1.1rem;
   border-radius: var(--radius);
   background: var(--surface);
+  border: 1px solid var(--border);
 }
 
 .cli-phase--verify .vis-h3 {
@@ -530,12 +536,11 @@ kbd {
 }
 
 .cli-phase--verify .prompt-box {
-  background: #fff;
-  border: 1px solid var(--border);
+  background: var(--bg);
 }
 
 .cli-phase--verify .prompt-box:hover {
-  background: #faf9f7;
+  background: var(--surface-bright);
 }
 
 /* 프롬프트 작업 블록 */
@@ -543,16 +548,16 @@ kbd {
   margin: 0.75rem 0 1rem;
   padding: 1rem 1.1rem;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
 .work-block .prompt-box {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--border);
+  background: var(--bg);
 }
 
 .work-block .prompt-box:hover {
-  background: #fff;
+  background: var(--surface-bright);
 }
 
 .work-block__label {
@@ -582,7 +587,7 @@ kbd {
 
 .brand-row img {
   display: block;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 /* 탭 예시 SVG */
@@ -591,7 +596,7 @@ kbd {
   padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--bg);
+  background: var(--surface);
   overflow: hidden;
 }
 
@@ -604,7 +609,7 @@ kbd {
 
 .diagram-figure .tab-strip-svg {
   padding: 0.75rem 1rem;
-  background: var(--surface);
+  background: var(--bg);
 }
 
 .diagram-figure svg {
@@ -612,11 +617,12 @@ kbd {
   height: auto;
 }
 
-/* Notion 스타일 콜아웃 배너 */
+/* 콜아웃 배너 — 불꽃 테마 */
 .stuck-banner {
   margin-top: 1.75rem;
   padding: 0.85rem 1rem 0.85rem 2.75rem;
-  background: rgba(255, 212, 0, 0.08);
+  background: rgba(255, 185, 0, 0.08);
+  border: 1px solid rgba(255, 185, 0, 0.2);
   border-radius: var(--radius);
   font-size: 0.9375rem;
   color: var(--text);
@@ -634,12 +640,14 @@ kbd {
 
 .stuck-banner strong {
   font-weight: 600;
+  color: #ffb900;
 }
 
 .idea-banner {
   margin-top: 0.6rem;
   padding: 0.85rem 1rem 0.85rem 2.75rem;
-  background: rgba(46, 170, 220, 0.06);
+  background: rgba(255, 107, 53, 0.08);
+  border: 1px solid rgba(255, 107, 53, 0.2);
   border-radius: var(--radius);
   font-size: 0.9375rem;
   color: var(--text);
@@ -648,7 +656,7 @@ kbd {
 }
 
 .idea-banner::before {
-  content: "💡";
+  content: "🔥";
   position: absolute;
   left: 0.85rem;
   top: 0.8rem;
@@ -657,6 +665,7 @@ kbd {
 
 .idea-banner strong {
   font-weight: 600;
+  color: var(--accent);
 }
 
 .idea-banner p {
@@ -680,7 +689,8 @@ kbd {
   gap: 0.6rem;
   margin-top: 1.75rem;
   padding: 0.85rem 1rem;
-  background: rgba(77, 171, 154, 0.08);
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid rgba(63, 185, 80, 0.2);
   border-radius: var(--radius);
   font-size: 0.9375rem;
   font-weight: 500;
@@ -694,7 +704,7 @@ kbd {
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 50%;
-  background: #4dab9a;
+  background: #3fb950;
   color: #fff;
   font-size: 0.75rem;
   flex-shrink: 0;
@@ -704,15 +714,15 @@ kbd {
 .day-divider {
   margin: 2.5rem 0 0;
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--accent-dim);
 }
 
 .day-of-header {
   margin-top: 1.5rem;
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  border-radius: var(--radius);
 }
 
 .day-of-header h2 {
@@ -720,7 +730,9 @@ kbd {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text);
+  color: var(--accent);
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .day-of-header .lead {
@@ -734,10 +746,10 @@ footer.site-footer {
   padding: 0;
 }
 
-/* 사용하지 않는 레거시 클래스 — 기능 유지 */
-.callout { background: var(--surface); border-left: 3px solid var(--border); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0; }
+/* 레거시 클래스 — 기능 유지 */
+.callout { background: var(--surface); border-left: 3px solid var(--accent); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0; }
 .callout p { margin: 0.25rem 0; }
-.callout-title { margin: 0 0 0.2rem !important; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.callout-title { margin: 0 0 0.2rem !important; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
 .callout-note { margin-top: 0.5rem !important; font-size: 0.875rem !important; color: var(--muted) !important; }
 .prompt-label { margin: 0 0 0.3rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 .section-kicker { margin: -0.25rem 0 0.75rem; font-size: 0.9375rem; color: var(--muted); max-width: 40rem; }
@@ -749,11 +761,14 @@ footer.site-footer {
 .step-card__goal { margin: 0 0 0.4rem !important; font-size: 0.8rem !important; font-weight: 500 !important; color: var(--muted) !important; }
 .step-card__list { margin: 0.4rem 0 0.5rem; padding-left: 1.2rem; font-size: 0.9375rem; }
 .step-card__list li { margin: 0.3rem 0; }
+.gstack-flow { margin: 0.65rem 0 1.25rem; padding-left: 1.35rem; }
+.gstack-flow li { margin: 0.55rem 0; }
+.gstack-flow.tight-flow li { margin: 0.25rem 0; }
 .how-terminal { margin: 1rem 0 1.25rem; padding: 0.85rem 1rem; background: var(--surface); border-radius: var(--radius); }
 .how-terminal .vis-h3 { margin-top: 0; }
 .cli-phase { margin: 2rem 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
 .eyebrow { margin: 0 0 0.4rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
-.toc { background: var(--surface); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 2rem; }
+.toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 2rem; }
 .toc h2 { margin: 0 0 0.75rem; font-size: 0.875rem; font-weight: 700; }
 .toc-grid { display: grid; gap: 1rem; }
 .toc-group { min-width: 0; }
@@ -761,16 +776,16 @@ footer.site-footer {
 .toc-links { margin: 0; padding: 0; list-style: none; }
 .toc-links li { margin: 0.3rem 0; font-size: 0.875rem; }
 .toc-meta { display: inline-block; margin-left: 0.2rem; font-size: 0.7rem; font-weight: 500; color: var(--muted); }
-.toc a { color: var(--text); font-weight: 500; }
+.toc a { color: var(--accent); font-weight: 500; }
 .timeline-cards { display: grid; gap: 0.75rem; margin: 1rem 0 1.25rem; }
-.timeline-card { padding: 1rem; background: var(--surface); border-radius: var(--radius); }
-.timeline-card--accent { background: rgba(46, 170, 220, 0.04); }
+.timeline-card { padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.timeline-card--accent { background: var(--accent-dim); }
 .timeline-card__label { margin: 0 0 0.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.timeline-card--accent .timeline-card__label { color: var(--blue); }
+.timeline-card--accent .timeline-card__label { color: var(--accent); }
 .timeline-card__ol { margin: 0; padding-left: 1.2rem; font-size: 0.9375rem; }
 .timeline-card__ol li { margin: 0.3rem 0; }
 .mermaid-summary { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.5rem; }
-.mermaid-wrap { margin: 0.5rem 0 1.25rem; padding: 0.75rem; background: var(--surface); border-radius: var(--radius); overflow-x: auto; }
+.mermaid-wrap { margin: 0.5rem 0 1.25rem; padding: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow-x: auto; }
 .mermaid-wrap .mermaid { display: flex; justify-content: center; margin: 0; }
 .mermaid-wrap pre.mermaid { font-family: inherit; white-space: pre; }
 .table-scroll { overflow-x: auto; margin: 0.5rem 0 1rem; }
@@ -797,7 +812,7 @@ footer.site-footer {
   }
 
   .site-header h1 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
 
   .platform-tabs {
@@ -813,6 +828,7 @@ footer.site-footer {
 @media print {
   body {
     background: #fff;
+    color: #000;
   }
 
   .ref-toggle > summary {
