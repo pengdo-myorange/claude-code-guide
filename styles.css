@@ -542,6 +542,12 @@ kbd {
   background: #fff;
 }
 
+.work-block__label {
+  margin: 0 0 0.4rem !important;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
 .work-block__hint {
   margin: 0.5rem 0 0 !important;
   font-size: 0.875rem;
