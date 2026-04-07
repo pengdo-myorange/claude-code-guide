@@ -895,6 +895,52 @@ footer.site-footer {
   color: var(--muted);
 }
 
+/* 막히면 멈추세요 배너 */
+.stuck-banner {
+  margin-top: 2rem;
+  padding: 0.85rem 1.2rem;
+  background: #fff8e1;
+  border: 1.5px solid #ffcc02;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: #6d5a00;
+  line-height: 1.55;
+}
+
+.stuck-banner strong {
+  color: #b8860b;
+}
+
+/* 아이디어 숙제 배너 */
+.idea-banner {
+  margin-top: 0.75rem;
+  padding: 1rem 1.2rem;
+  background: #e8eaf6;
+  border: 1.5px solid #9fa8da;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: #283593;
+  line-height: 1.55;
+}
+
+.idea-banner strong {
+  color: #1a237e;
+}
+
+.idea-banner p {
+  margin: 0.3rem 0 0.5rem;
+}
+
+.idea-banner ul {
+  margin: 0;
+  padding-left: 1.3rem;
+  list-style: disc;
+}
+
+.idea-banner li {
+  margin-bottom: 0.15rem;
+}
+
 /* 미리 해올 것 완료 배너 */
 .prep-done-banner {
   display: flex;
