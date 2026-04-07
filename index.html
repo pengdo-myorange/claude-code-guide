@@ -15,18 +15,18 @@
       <header class="site-header">
         <h1>Claude Code 초보자 설정 가이드</h1>
         <p class="lead">
-          수업 전에 <a href="#cli">미리 해올 것</a>을 완료하면, 당일은 <strong>Code</strong> 탭에 프롬프트를 붙여 넣고 승인만 하면 됩니다.
+          수업 전에 <a href="#cli">미리 해올 것</a>을 완료해 오세요. <a href="#day-of">당일에 할 것</a>은 수업 시간에 함께 진행합니다.
         </p>
         <fieldset class="platform-fieldset">
           <legend class="platform-legend">사용 중인 OS</legend>
           <div class="platform-tabs" role="radiogroup" aria-label="운영체제">
             <label>
-              <input type="radio" name="platform" id="platform-mac" value="mac" checked />
-              macOS
+              <input type="radio" name="platform" id="platform-win" value="win" checked />
+              Windows
             </label>
             <label>
-              <input type="radio" name="platform" id="platform-win" value="win" />
-              Windows
+              <input type="radio" name="platform" id="platform-mac" value="mac" />
+              macOS
             </label>
           </div>
         </fieldset>
@@ -52,14 +52,7 @@
             </li>
           </ul>
 
-          <h3 class="vis-h3">2단계. 터미널에서 설치</h3>
-
-          <div class="open-tip only-mac">
-            <strong>터미널 여는 법</strong>
-            <span class="open-tip__steps">
-              <kbd>⌘ Cmd</kbd> + <kbd>Space</kbd> → Spotlight 검색창에 <code>터미널</code> → <kbd>Return</kbd>
-            </span>
-          </div>
+          <h3 class="vis-h3 only-win">2단계. PowerShell에서 설치</h3>
 
           <div class="open-tip only-win">
             <strong>PowerShell 여는 법</strong>
@@ -68,7 +61,62 @@
             </span>
           </div>
 
-          <h3 class="vis-h3 only-mac">macOS 설치</h3>
+          <h3 class="vis-h3 only-mac">2단계. 터미널에서 설치</h3>
+
+          <p class="only-win step-intro">동의·관리자 창이 뜨면 허용합니다.</p>
+          <div
+            class="prompt-box only-win"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 명령을 클립보드에 복사합니다"
+          >
+winget install --id Git.Git -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id OpenJS.NodeJS.LTS -e --source winget --accept-package-agreements --accept-source-agreements
+winget install --id GitHub.cli -e --source winget --accept-package-agreements --accept-source-agreements
+          </div>
+          <p class="only-win">설치 완료 후 PowerShell을 닫고 다시 열어 실행하세요.</p>
+          <div
+            class="prompt-box only-win"
+            tabindex="0"
+            role="button"
+            aria-label="클릭하면 명령을 클립보드에 복사합니다"
+          >
+            npm i -g vercel
+          </div>
+          <details class="ref-toggle only-win">
+            <summary>winget 실패 시 — 브라우저</summary>
+            <div class="ref-toggle-body">
+              <ol class="install-steps">
+                <li>
+                  <a class="external" href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer"
+                    >Git for Windows</a
+                  >
+                </li>
+                <li>
+                  <a class="external" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
+                    >Node.js LTS (.msi)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="external"
+                    href="https://github.com/cli/cli/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub CLI</a
+                  >
+                  → <code>gh_*_windows_amd64.msi</code>
+                </li>
+              </ol>
+            </div>
+          </details>
+
+          <div class="open-tip only-mac">
+            <strong>터미널 여는 법</strong>
+            <span class="open-tip__steps">
+              <kbd>⌘ Cmd</kbd> + <kbd>Space</kbd> → Spotlight 검색창에 <code>터미널</code> → <kbd>Return</kbd>
+            </span>
+          </div>
           <ol class="install-flow only-mac">
             <li class="step-card">
               <div class="step-card__head">
@@ -150,62 +198,14 @@ curl -fsSL "$URL" -o /tmp/gh.pkg && open /tmp/gh.pkg
             </div>
           </details>
 
-          <h3 class="vis-h3 only-win">Windows 설치</h3>
-          <p class="only-win step-intro">PowerShell에서 실행하세요. 동의·관리자 창이 뜨면 허용합니다.</p>
-          <div
-            class="prompt-box only-win"
-            tabindex="0"
-            role="button"
-            aria-label="클릭하면 명령을 클립보드에 복사합니다"
-          >
-winget install --id Git.Git -e --source winget --accept-package-agreements --accept-source-agreements
-winget install --id OpenJS.NodeJS.LTS -e --source winget --accept-package-agreements --accept-source-agreements
-winget install --id GitHub.cli -e --source winget --accept-package-agreements --accept-source-agreements
-          </div>
-          <p class="only-win">설치 완료 후 터미널을 닫고 다시 열어 실행하세요.</p>
-          <div
-            class="prompt-box only-win"
-            tabindex="0"
-            role="button"
-            aria-label="클릭하면 명령을 클립보드에 복사합니다"
-          >
-            npm i -g vercel
-          </div>
-          <details class="ref-toggle only-win">
-            <summary>winget 실패 시 — 브라우저</summary>
-            <div class="ref-toggle-body">
-              <ol class="install-steps">
-                <li>
-                  <a class="external" href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer"
-                    >Git for Windows</a
-                  >
-                </li>
-                <li>
-                  <a class="external" href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"
-                    >Node.js LTS (.msi)</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="external"
-                    href="https://github.com/cli/cli/releases/latest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >GitHub CLI</a
-                  >
-                  → <code>gh_*_windows_amd64.msi</code>
-                </li>
-              </ol>
-            </div>
-          </details>
-
           <h3 class="vis-h3">3단계. 로그인</h3>
           <p class="tight-p">GitHub 로그인 후 Git 설정과 Vercel 로그인까지 자동으로 합니다.</p>
+          <p class="tight-p only-mac">계속 터미널에서 실행합니다.</p>
           <div class="open-tip only-win">
-            <strong>Git Bash 여는 법</strong>
-            <span class="open-tip__steps">시작 메뉴 검색창에 <code>Git Bash</code> → 실행 (Git 설치 후 자동으로 생깁니다)</span>
+            <strong>여기서부터 Git Bash 사용</strong>
+            <span class="open-tip__steps">시작 메뉴 검색창에 <code>Git Bash</code> → 실행 (Git 설치 시 자동으로 생깁니다)</span>
           </div>
-          <p class="tight-p only-win">PowerShell을 쓴다면 아래 접기를 펼치세요.</p>
+          <p class="tight-p only-win">PowerShell에서 하고 싶다면 아래 접기를 펼치세요.</p>
           <div
             class="prompt-box"
             tabindex="0"
@@ -246,7 +246,7 @@ vercel login
 
           <div class="cli-phase--verify">
             <h3 class="vis-h3">확인</h3>
-            <p class="tight-p">아래를 실행해 모두 숫자·이름이 출력되면 준비 완료입니다. 이어서 <a href="#part1">1부 Code 탭</a>으로 이동하세요.</p>
+            <p class="tight-p">아래를 실행해 모두 숫자·이름이 출력되면 준비 완료입니다.</p>
             <div
               class="prompt-box"
               tabindex="0"
@@ -268,8 +268,19 @@ vercel whoami
             <p class="follow-hint only-mac"><code>command not found</code>가 뜨면 터미널을 닫고 다시 열어 재실행하세요.</p>
             <p class="follow-hint only-win">명령을 찾을 수 없다는 오류가 나오면 PowerShell을 닫고 다시 열어 재실행하세요.</p>
           </div>
+
+          <div class="prep-done-banner" aria-label="미리 해올 것 완료 안내">
+            <span class="prep-done-banner__icon" aria-hidden="true">&#10003;</span>
+            여기까지 완료하면 사전 준비 끝! 아래는 <strong>당일</strong>에 진행합니다.
+          </div>
         </section>
 
+        <div class="day-divider" aria-hidden="true"></div>
+
+        <section id="day-of" class="day-of-header">
+          <h2>당일에 할 것</h2>
+          <p class="lead">Claude 앱을 열고, 아래 순서대로 프롬프트를 복사해 붙여 넣으면 됩니다.</p>
+        </section>
 
         <section id="part1">
           <h2>1부. Code 탭</h2>
