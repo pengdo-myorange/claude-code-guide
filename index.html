@@ -41,7 +41,7 @@
           <ol class="setup-steps only-win">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
-              가입/로그인
+              가입/로그인 — 코드를 저장하고 관리하는 곳
             </li>
             <li>
               <a class="external" href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreferrer">Git for Windows</a>
@@ -49,7 +49,7 @@
             </li>
             <li>
               <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
-              가입/로그인
+              가입/로그인 — 만든 것을 인터넷에 공개하는 곳
             </li>
           </ol>
 
@@ -58,11 +58,11 @@
           <ul class="only-mac">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
-              가입/로그인
+              가입/로그인 — 코드를 저장하고 관리하는 곳
             </li>
             <li>
               <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
-              가입/로그인
+              가입/로그인 — 만든 것을 인터넷에 공개하는 곳
             </li>
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>
@@ -75,7 +75,7 @@
           <ol class="setup-steps only-win">
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>을
-              다운로드·설치한 뒤 Pro로 로그인합니다.
+              다운로드·설치한 뒤 로그인합니다.
             </li>
             <li>Claude 앱을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
@@ -93,7 +93,7 @@
 
           <!-- ===== Windows 3단계 ===== -->
           <h3 class="vis-h3 only-win">3단계. 채팅창에서 설치</h3>
-          <p class="tight-p only-win">아래 프롬프트를 순서대로 채팅창에 입력합니다.</p>
+          <p class="tight-p only-win">아래 프롬프트를 순서대로 Claude Code 채팅창에 입력합니다. CLI는 명령어로 조작하는 도구입니다.</p>
           <ol class="install-flow only-win">
             <li class="step-card">
               <div class="step-card__head">
@@ -109,7 +109,7 @@
 node.js를 자동 설치하고 PATH를 새로고침해
               </div>
               <p>권한을 요청하면 <strong>Always allow for this project</strong>를 클릭합니다.</p>
-              <p>완료 후 Claude 앱을 재시작합니다. (작업 관리자에서 Claude 작업 끝내기 → 다시 실행)</p>
+              <p>완료 후 Claude 앱을 재시작합니다. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> → 작업 관리자에서 <strong>Claude</strong>를 찾아 <strong>작업 끝내기</strong> → Claude 다시 실행</p>
             </li>
             <li class="step-card">
               <div class="step-card__head">
@@ -378,7 +378,7 @@ https://github.com/phuryn/pm-skills 스킬을 설치해
 
         <section id="office-hours">
           <h2>3부. 아이디어 확정</h2>
-          <p>사전 숙제로 생각해 온 아이디어 중 하나를 골라 구체화합니다. 아래 프롬프트를 붙여 넣으세요.</p>
+          <p>사전 숙제로 생각해 온 아이디어 중 하나를 골라, 아래 템플릿을 채워서 <code>/office-hours</code>와 함께 붙여 넣으세요.</p>
           <div class="work-block">
             <div
               class="prompt-box"
@@ -387,6 +387,11 @@ https://github.com/phuryn/pm-skills 스킬을 설치해
               aria-label="클릭하면 프롬프트를 클립보드에 복사합니다"
             >
 /office-hours
+
+만들고 싶은 것: (예: 팀 회의록 자동 정리 도구)
+누가 쓰나: (예: 우리 팀 PM 5명)
+지금은 어떻게 하고 있나: (예: 회의 끝나면 수동으로 노션에 정리)
+해결하고 싶은 문제: (예: 정리하는 데 매번 30분씩 걸림)
             </div>
             <p class="work-block__hint">Claude가 질문을 하면 답하면서 아이디어를 다듬어 갑니다. 끝나면 프로젝트 이름과 방향이 정해집니다.</p>
           </div>
