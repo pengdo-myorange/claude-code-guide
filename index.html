@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>지옥의 AI 캠프 — 설정 가이드</title>
-    <meta name="description" content="지옥의 AI 캠프 사전 준비 가이드. OS 선택 후 터미널 준비·GitHub·Vercel." />
+    <title>오렌지 AI 캠프 — 설정 가이드</title>
+    <meta name="description" content="오렌지 AI 캠프 사전 준비 가이드. OS 선택 후 터미널 준비·GitHub·Vercel." />
     <link rel="stylesheet" href="styles.css" />
     <script src="copy-prompt.js" defer></script>
   </head>
@@ -13,7 +13,7 @@
 
     <div class="wrap">
       <header class="site-header">
-        <h1>🔥 지옥의 AI 캠프 — 설정 가이드</h1>
+        <h1>🍊오렌지 AI 캠프 — 설정 가이드</h1>
         <p class="lead">
           캠프 전에 <a href="#cli">미리 해올 것</a>을 완료해 오세요. <a href="#day-of">당일에 할 것</a>은 캠프에서 함께 진행합니다.
         </p>
@@ -36,12 +36,25 @@
       <main id="main">
         <section id="cli">
           <h2>미리 해올 것</h2>
+
+          <!-- ===== 0단계. 실습 환경 확인 (OS 공통) ===== -->
+          <h3 class="vis-h3">0단계. 실습 환경 확인</h3>
+          <p class="tight-p">본격적으로 설치하기 전에, 실습에 사용할 노트북이 아래 기준을 충족하는지 먼저 확인하세요.</p>
+          <ul class="env-check">
+            <li><strong>RAM</strong> — 8GB 이상</li>
+            <li><strong>여유 저장공간</strong> — 5GB 이상</li>
+            <li>최신 <strong>Chrome 브라우저</strong> 사용 가능</li>
+          </ul>
+          <p class="tight-p only-win"><strong>확인 방법:</strong> <strong>설정 &gt; 시스템 &gt; 정보</strong>에서 RAM과 저장공간을 확인할 수 있습니다.</p>
+          <p class="tight-p only-mac"><strong>확인 방법:</strong> 좌상단 <strong>Apple 메뉴() &gt; 이 Mac에 관하여</strong>에서 메모리와 저장공간을 확인할 수 있습니다.</p>
+
           <!-- ===== Windows 1단계 ===== -->
           <h3 class="vis-h3 only-win">1단계. 가입 + Git 설치</h3>
           <ol class="setup-steps only-win">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
-              가입/로그인 — 코드를 저장하고 관리하는 곳
+              가입/로그인
+              <p>내가 만든 코드를 온라인에 저장하고 버전별로 관리하는 공간이에요. 작업물을 안전하게 백업하고 어디서든 이어서 작업할 수 있어요.</p>
             </li>
             <li>
               <a class="external" href="https://git-scm.com/install/windows" target="_blank" rel="noopener noreferrer">Git for Windows</a>
@@ -49,7 +62,8 @@
             </li>
             <li>
               <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
-              가입/로그인 — 만든 것을 인터넷에 공개하는 곳
+              가입/로그인
+              <p>만든 웹사이트·앱을 클릭 몇 번으로 인터넷에 공개(배포)해 주는 서비스예요. 복잡한 서버 설정 없이 누구나 접속할 수 있는 주소가 생겨요.</p>
             </li>
           </ol>
 
@@ -58,11 +72,13 @@
           <ol class="setup-steps only-mac">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
-              가입/로그인 — 코드를 저장하고 관리하는 곳
+              가입/로그인
+              <p>내가 만든 코드를 온라인에 저장하고 버전별로 관리하는 공간이에요. 작업물을 안전하게 백업하고 어디서든 이어서 작업할 수 있어요.</p>
             </li>
             <li>
               <a class="external" href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
-              가입/로그인 — 만든 것을 인터넷에 공개하는 곳
+              가입/로그인
+              <p>만든 웹사이트·앱을 클릭 몇 번으로 인터넷에 공개(배포)해 주는 서비스예요. 복잡한 서버 설정 없이 누구나 접속할 수 있는 주소가 생겨요.</p>
             </li>
           </ol>
 
@@ -72,6 +88,7 @@
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>을
               다운로드·설치한 뒤 로그인합니다.
+              <p><strong>주의:</strong> Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p>
             </li>
             <li>Claude 앱을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
@@ -149,6 +166,7 @@ vercel cli를 자동 설치하고 로그인해
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>을
               다운로드·설치한 뒤 로그인합니다.
+              <p><strong>주의:</strong> Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p>
             </li>
             <li>Claude 앱을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
@@ -227,7 +245,7 @@ vercel cli를 자동 설치하고 로그인해
 
           <div class="idea-banner">
             <strong>아이디어 숙제</strong>
-            <p>바이브 코딩으로 무엇을 만들지 <strong>3개</strong> 생각해 오세요. 실제 업무에 바로 쓸 수 있는 것이 좋습니다. 아이디어에 제한을 두지 마세요 — 뭐든지 가능합니다.</p>
+            <p>바이브 코딩으로 무엇을 만들지 <strong>2~3개</strong> 생각해 오세요. 실제 업무에 바로 쓸 수 있는 것이 좋습니다. 아이디어에 제한을 두지 마세요 — 뭐든지 가능합니다.</p>
             <p>아이디어마다 아래 항목을 간단히 메모해 두면 캠프에서 바로 시작할 수 있습니다.</p>
             <ul>
               <li><strong>만들고 싶은 것</strong> — 한 줄 요약 (예: 팀 회의록 자동 정리 도구)</li>
@@ -257,7 +275,7 @@ vercel cli를 자동 설치하고 로그인해
           </p>
           <div class="work-block">
             <p class="work-block__label"><a class="external" href="https://github.com/myorange-io/orange-skill" target="_blank" rel="noopener noreferrer">orange-skill</a></p>
-            <p class="work-block__hint">펭도가 만든 올인원 바이브코딩 플러그인. 기획 → 프로토타입 → 배포까지 한 흐름으로 안내합니다(<code>/orange-start</code>로 시작). 이 플러그인은 채팅 프롬프트가 아니라 클로드 데스크톱 앱의 플러그인 메뉴에서 설치합니다.</p>
+            <p class="work-block__hint">펭도가 만든 올인원 바이브코딩 플러그인. 기획 → 프로토타입 → 배포까지 한 흐름으로 안내합니다(<code>/orange-start</code>로 시작). 이 플러그인은 채팅 프롬프트가 아니라 클로드 데스크톱 앱의 플러그인 메뉴에서 설치합니다. 공개 저장소라 별도 권한은 필요 없고, 설치에 필요한 준비물(GitHub 가입 + Claude Code 설정)은 <a href="#cli">사전 준비 1단계</a>에서 이미 끝나 있습니다.</p>
             <ol class="install-flow">
               <li class="step-card">
                 <div class="step-card__head">
