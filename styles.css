@@ -798,6 +798,112 @@ footer.site-footer {
 .doc-figure-link:hover { opacity: 0.95; }
 .doc-figure-img { display: block; width: 100%; max-width: 100%; height: auto; }
 
+/* === 가독성 개선: 준비 섹션 길잡이/배지/콜아웃 === */
+.prep-overview {
+  margin: 0.9rem 0 0.5rem;
+  padding: 0.8rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.prep-overview__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prep-overview ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.prep-overview li { margin: 0.2rem 0; }
+
+.prep-group-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2.25rem 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.prep-group-label::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--accent-dim);
+}
+
+.time-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--muted);
+  background: var(--surface-bright);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.step-h3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem 0;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.step-h3__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-right: 0.6rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.step-h3 .time-badge { margin-left: 0.6rem; }
+
+/* 콜아웃 박스 (주의 / 참고 / 팁) */
+.cbox {
+  position: relative;
+  margin: 0.6rem 0;
+  padding: 0.6rem 0.85rem 0.6rem 2.25rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.cbox p { margin: 0; }
+.cbox strong { font-weight: 600; }
+.cbox::before {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.55rem;
+  font-size: 0.95rem;
+}
+.cbox--warn { background: rgba(255, 107, 53, 0.07); border-color: rgba(255, 107, 53, 0.25); }
+.cbox--warn::before { content: "⚠️"; }
+.cbox--info { background: rgba(56, 139, 253, 0.08); border-color: rgba(56, 139, 253, 0.28); }
+.cbox--info::before { content: "ℹ️"; }
+.cbox--tip { background: rgba(63, 185, 80, 0.08); border-color: rgba(63, 185, 80, 0.22); }
+.cbox--tip::before { content: "💡"; }
+
 @media (min-width: 560px) {
   .timeline-cards { grid-template-columns: 1fr 1fr; }
 }

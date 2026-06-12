@@ -38,9 +38,10 @@
           <h2>미리 해올 것</h2>
 
           <div class="idea-banner">
-            <strong>아이디어 숙제 (가장 먼저!)</strong>
-            <p>아래 설치·설정은 당일에 함께 진행할 수 있지만, <strong>아이디어만큼은 미리 생각해 오셔야</strong> 합니다. 바이브 코딩으로 무엇을 만들지 <strong>2~3개</strong> 생각해 오세요. 실제 업무에 바로 쓸 수 있는 것이 좋습니다. 아이디어에 제한을 두지 마세요 — 뭐든지 가능합니다.</p>
-            <p>아이디어마다 아래 항목을 간단히 메모해 두면 캠프에서 바로 시작할 수 있습니다.</p>
+            <strong>아이디어 숙제 — 이것만은 미리!</strong>
+            <p>설치·설정은 당일에 함께 진행할 수 있어요. 하지만 <strong>아이디어만큼은 미리 생각해 오셔야</strong> 합니다.</p>
+            <p>바이브 코딩으로 무엇을 만들지 2~3개 떠올려 보세요. 실제 업무에 바로 쓸 수 있는 것이면 더 좋고, 주제에 제한은 없습니다.</p>
+            <p>아이디어마다 아래 항목을 간단히 메모해 두면 캠프에서 바로 시작할 수 있어요.</p>
             <ul>
               <li><strong>만들고 싶은 것</strong> — 한 줄 요약 (예: 팀 회의록 자동 정리 도구)</li>
               <li><strong>누가 쓰나</strong> — 사용자/대상 (예: 우리 팀 PM 5명)</li>
@@ -49,28 +50,41 @@
             </ul>
           </div>
 
-          <!-- ===== 0단계. 실습 환경 확인 (OS 공통) ===== -->
-          <h3 class="vis-h3">0단계. 실습 환경 확인</h3>
+          <div class="prep-overview">
+            <p class="prep-overview__title">미리 해올 것 한눈에 보기</p>
+            <ol>
+              <li>아이디어 2~3개 준비 <span class="time-badge">필수</span></li>
+              <li>먼저 챙길 준비물 — 실습 환경 확인 · Zoom 설치</li>
+              <li>설치 단계 1~3 — 가입 → Claude Code 설정 → 도구 설치</li>
+            </ol>
+          </div>
+
+          <p class="prep-group-label">먼저 챙길 준비물</p>
+
+          <!-- ===== 실습 환경 확인 (OS 공통) ===== -->
+          <h3 class="vis-h3">실습 환경 확인 <span class="time-badge">~2분</span></h3>
           <p class="tight-p">본격적으로 설치하기 전에, 실습에 사용할 노트북이 아래 기준을 충족하는지 먼저 확인하세요.</p>
           <ul class="env-check">
             <li><strong>RAM</strong> — 8GB 이상</li>
             <li><strong>여유 저장공간</strong> — 5GB 이상</li>
             <li>최신 <strong>Chrome 브라우저</strong> 사용 가능</li>
           </ul>
-          <p class="tight-p only-win"><strong>확인 방법:</strong> <strong>설정 &gt; 시스템 &gt; 정보</strong>에서 RAM과 저장공간을 확인할 수 있습니다.</p>
-          <p class="tight-p only-mac"><strong>확인 방법:</strong> 좌상단 <strong>Apple 메뉴() &gt; 이 Mac에 관하여</strong>에서 메모리와 저장공간을 확인할 수 있습니다.</p>
+          <div class="cbox cbox--info only-win"><p>확인 방법: <strong>설정 &gt; 시스템 &gt; 정보</strong>에서 RAM과 저장공간을 확인할 수 있습니다.</p></div>
+          <div class="cbox cbox--info only-mac"><p>확인 방법: 좌상단 <strong>Apple 메뉴() &gt; 이 Mac에 관하여</strong>에서 메모리와 저장공간을 확인할 수 있습니다.</p></div>
 
           <!-- ===== 화면 공유 준비: Zoom 설치 (OS 공통) ===== -->
-          <h3 class="vis-h3">화면 공유 준비 — Zoom 설치</h3>
+          <h3 class="vis-h3">화면 공유 준비 — Zoom 설치 <span class="time-badge">~3분</span></h3>
           <p class="tight-p">
             <a class="external" href="https://zoom.us/download" target="_blank" rel="noopener noreferrer">Zoom 데스크톱 앱</a>을
             다운로드·설치한 뒤, 앱이 정상적으로 열리는지 한 번 실행해 확인하세요.
           </p>
           <p class="tight-p">캠프에서는 각자 본인 화면을 Zoom으로 공유하고, 진행자가 이를 대형 스크린에 띄워 함께 봅니다. 미리 설치해 두면 당일 바로 참여할 수 있어요.</p>
-          <p class="tight-p"><strong>참고:</strong> 회의 참여와 화면 공유는 게스트로도 가능하므로 <strong>설치만 필수</strong>입니다. 로그인은 선택이에요(해 두면 더 편합니다).</p>
+          <div class="cbox cbox--info"><p>회의 참여와 화면 공유는 게스트로도 가능하므로 <strong>설치만 필수</strong>입니다. 로그인은 선택이에요(해 두면 더 편합니다).</p></div>
+
+          <p class="prep-group-label">설치 단계 — 순서대로 따라 하세요</p>
 
           <!-- ===== Windows 1단계 ===== -->
-          <h3 class="vis-h3 only-win">1단계. 가입 + Git 설치</h3>
+          <h3 class="vis-h3 step-h3 only-win"><span class="step-h3__n" aria-hidden="true">1</span>가입 + Git 설치 <span class="time-badge">~5분</span></h3>
           <ol class="setup-steps only-win">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -89,7 +103,7 @@
           </ol>
 
           <!-- ===== macOS 1단계 ===== -->
-          <h3 class="vis-h3 only-mac">1단계. 가입</h3>
+          <h3 class="vis-h3 step-h3 only-mac"><span class="step-h3__n" aria-hidden="true">1</span>가입 <span class="time-badge">~3분</span></h3>
           <ol class="setup-steps only-mac">
             <li>
               <a class="external" href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -104,17 +118,17 @@
           </ol>
 
           <!-- ===== Windows 2단계 ===== -->
-          <h3 class="vis-h3 only-win">2단계. Claude Code 설정</h3>
+          <h3 class="vis-h3 step-h3 only-win"><span class="step-h3__n" aria-hidden="true">2</span>Claude Code 설정 <span class="time-badge">~5분</span></h3>
           <ol class="setup-steps only-win">
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>을
               다운로드·설치한 뒤 로그인합니다.
-              <p><strong>주의:</strong> Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p>
+              <div class="cbox cbox--warn"><p>Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p></div>
             </li>
             <li>Claude 앱을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
             <li>작업할 폴더를 선택(새 폴더 생성)하고, 사용할 모델을 고릅니다. (<strong>Sonnet 4.6</strong>)
-              <p><strong>주의:</strong> 구글 드라이브, 원드라이브, iCloud Drive, Dropbox 등 <strong>클라우드 동기화 폴더는 제외</strong>하세요.</p>
+              <div class="cbox cbox--warn"><p>구글 드라이브, 원드라이브, iCloud Drive, Dropbox 등 <strong>클라우드 동기화 폴더는 제외</strong>하세요.</p></div>
             </li>
             <li>
               Claude 앱 설정을 변경합니다. 앱 메뉴에서 <strong>설정</strong>을 열고 <strong>Claude Code</strong>를 클릭한 뒤:
@@ -128,7 +142,7 @@
           </ol>
 
           <!-- ===== Windows 3단계 ===== -->
-          <h3 class="vis-h3 only-win">3단계. 채팅창에서 설치</h3>
+          <h3 class="vis-h3 step-h3 only-win"><span class="step-h3__n" aria-hidden="true">3</span>채팅창에서 설치 <span class="time-badge">~10분</span></h3>
           <p class="tight-p only-win">아래 프롬프트를 순서대로 Claude Code 채팅창에 입력합니다.</p>
           <ol class="install-flow only-win">
             <li class="step-card">
@@ -182,17 +196,17 @@ vercel cli를 자동 설치하고 로그인해
           </ol>
 
           <!-- ===== macOS 2단계 ===== -->
-          <h3 class="vis-h3 only-mac">2단계. Claude Code 설정</h3>
+          <h3 class="vis-h3 step-h3 only-mac"><span class="step-h3__n" aria-hidden="true">2</span>Claude Code 설정 <span class="time-badge">~5분</span></h3>
           <ol class="setup-steps only-mac">
             <li>
               <a class="external" href="https://claude.com/download" target="_blank" rel="noopener noreferrer">Claude 데스크톱</a>을
               다운로드·설치한 뒤 로그인합니다.
-              <p><strong>주의:</strong> Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p>
+              <div class="cbox cbox--warn"><p>Claude Code 기능은 <strong>Claude Pro 이상 유료 플랜</strong> 구독이 필요합니다. 무료 플랜에서는 Code 탭을 사용할 수 없어요.</p></div>
             </li>
             <li>Claude 앱을 열고 상단의 <strong>Code</strong> 탭을 클릭합니다.</li>
             <li>시작 화면에서 <strong>Local</strong>을 선택합니다. (내 컴퓨터 폴더에 직접 접근하는 방식)</li>
             <li>작업할 폴더를 선택(새 폴더 생성)하고, 사용할 모델을 고릅니다. (<strong>Sonnet 4.6</strong>)
-              <p><strong>주의:</strong> 구글 드라이브, 원드라이브, iCloud Drive, Dropbox 등 <strong>클라우드 동기화 폴더는 제외</strong>하세요.</p>
+              <div class="cbox cbox--warn"><p>구글 드라이브, 원드라이브, iCloud Drive, Dropbox 등 <strong>클라우드 동기화 폴더는 제외</strong>하세요.</p></div>
             </li>
             <li>
               Claude 앱 설정을 변경합니다. 앱 메뉴에서 <strong>설정</strong>을 열고 <strong>Claude Code</strong>를 클릭한 뒤:
@@ -206,7 +220,7 @@ vercel cli를 자동 설치하고 로그인해
           </ol>
 
           <!-- ===== macOS 3단계 ===== -->
-          <h3 class="vis-h3 only-mac">3단계. 채팅창에서 설치</h3>
+          <h3 class="vis-h3 step-h3 only-mac"><span class="step-h3__n" aria-hidden="true">3</span>채팅창에서 설치 <span class="time-badge">~10분</span></h3>
           <p class="tight-p only-mac">아래 프롬프트를 순서대로 Claude Code 채팅창에 입력합니다.</p>
           <ol class="install-flow only-mac">
             <li class="step-card">
